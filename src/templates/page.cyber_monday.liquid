@@ -1,0 +1,339 @@
+{% if settings.enable_cyberpage %}
+<main class="{{page.title | handle }} merged-page-template">
+  {% include 'breadcrumb' %}
+ {% if settings.enable_cybertophead %}
+
+  <section id="page-header">
+    <div class="header-background">
+      <div class="changable-image" style="background-image: url({{ settings.monday_banner | img_url: 'master' }});">
+        <div class="page-width">
+          <div class="rowxzx">
+               {%if  settings.enable_monbanhead %}
+
+              <h1>{{ page.title }}</h1>
+                {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+  {% unless page.content == blank %}
+  <div class="section page ">
+    <div class="page-width">
+      <div class="rowxc">
+          <div class="content text-center">
+            {{ page.content }}
+          </div>
+      </div>
+    </div>
+  </div>
+  {% endunless %}
+   {% if settings.enable_top_ban %}
+  {% unless settings.enable_cybertophead %}
+  <section class="top_bar_monday"  id="page-header">
+      <div class=" top_image_ban full_width">
+
+        <img src="{{ settings.top_monday_banner | img_url: 'master' }}" alt="About WODLife" class="about-image" />
+        {%if  settings.cyb_head != blank %}
+        <h1>{{settings.cyb_head}}</h1>
+        {% endif %}
+     </div>
+  </section>
+  {% endunless %}
+      {% endif %}
+     {% if settings.enable_top_ban and settings.enable_cybertophead %}
+
+   <section class="top_bar_monday" >
+    <div class="page-width">
+      <div class="row top_image_ban">
+        <img src="{{ settings.top_monday_banner | img_url: 'master' }}" alt="About WODLife" class="about-image" />
+        {%if  settings.cyb_head != blank %}
+        <h1>{{settings.cyb_head}}</h1>
+        {% endif %}
+      </div>
+     </div>
+  </section>
+      {% endif %}
+
+  {% if settings.enable_cybups %}
+  <section id="home-ups-bar" class="hidden-xs blk_cyb_ups">
+    <div class="page-width">
+
+      <div class="rowxcxc">
+       <div class="grid grid--uniform">
+
+        <div class="grid__item extra-small--one-whole small--one-half medium-up--one-quarter">
+          <i class="fa {{ settings.cicon1 }}"></i>
+          <h4>{{ settings.ctitle1 }}</h4>
+          <div class="description">
+            {{ settings.csubtitle1 }}
+          </div>
+        </div>
+        <div class="grid__item extra-small--one-whole small--one-half medium-up--one-quarter">
+          <i class="fa {{ settings.cicon2 }}"></i>
+          <h4>{{ settings.ctitle2 }}</h4>
+          <div class="description">
+            {{ settings.csubtitle2 }}
+          </div>
+        </div>
+        <div class="grid__item extra-small--one-whole small--one-half medium-up--one-quarter">
+          <i class="fa {{ settings.cicon3 }}"></i>
+          <h4>{{ settings.ctitle3 }}</h4>
+          <div class="description">
+            {{ settings.csubtitle3 }}
+          </div>
+        </div>
+        <div class="grid__item extra-small--one-whole small--one-half medium-up--one-quarter">
+          <i class="fa {{ settings.cicon4 }}"></i>
+          <h4>{{ settings.ctitle4 }}</h4>
+          <div class="description">
+            {{ settings.csubtitle4 }}
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if settings.cyber_monday_countdown %}
+    {% include 'countdown' %}
+  {% endif %}
+
+  <div class="section page mob_top">
+    <div class="page-width">
+      <div class="rowxcx">
+        <div class="col-md-12xcxc">
+          <div class="content">
+            {% if settings.enable_cybthree_img %}
+            <div class="grid grid--uniform cybercoll-mainwr">
+              <div class="grid__item extra-small--one-whole small--one-half medium-up--one-third ">
+                <a href="{{settings.cimage3_1_link}}">
+                  <img src="{{ settings.cimage3_1 | img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                  <div class="cyber-collectiontitwr">{{settings.cybercoll_1}}</div>
+                </a>
+
+              </div>
+              <div class="grid__item extra-small--one-whole small--one-half medium-up--one-third">
+                <a href="{{settings.cimage3_2_link}}">
+                  <img src="{{ settings.cimage3_2 | img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                    <div class="cyber-collectiontitwr">{{settings.cybercoll_2}}</div>
+                </a>
+
+              </div>
+              <div class="grid__item extra-small--one-whole small--one-half medium-up--one-third">
+                <a href="{{settings.cimage3_3_link}}">
+                  <img src="{{ settings.cimage3_3 | img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                 <div class="cyber-collectiontitwr">{{settings.cybercoll_3}}</div>
+                </a>
+
+              </div>
+            </div>
+            {% endif %}
+            {% if settings.enable_cybtwo_img %}
+             <div class="grid grid--uniform cybercoll-mainwr">
+              <div class="grid__item extra-small--one-whole small--one-half medium-up--one-half">
+                <a href="{{settings.cimage2_1_link}}">
+                  <img src="{{ settings.cimage2_1 | img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                  <div class="cyber-collectiontitwr">{{settings.cybercoll_4}}</div>
+                </a>
+
+              </div>
+              <div class="grid__item extra-small--one-whole small--one-half medium-up--one-half">
+                <a href="{{settings.cimage2_2_link}}">
+                  <img src="{{ settings.cimage2_2 | img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                  <div class="cyber-collectiontitwr">{{settings.cybercoll_5}}</div>
+                </a>
+
+              </div>
+
+            </div>
+            {% endif %}
+
+
+            {% if settings.m_enable_seller %}
+            <div class="row two-col">
+              <div class="col-md-6 col-sm-6 col-xs-12 text-center two_sec">
+                <a href="{{settings.m_him_sell_url}}">
+
+                  <img src="{{ settings.m_him_sell | img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                </a>
+                {% if settings.m_enable_himsell_un %}
+
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                  <a href="{{ settings.m_him_sell_url_un1 }}">
+
+                    <img src="{{ settings.m_him_sell_un1 | img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                  </a>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                  <a href="{{ settings.m_him_sell_url_un2 }}">
+
+                    <img src="{{ settings.m_him_sell_un2 | img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                  </a>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4" >
+                  <a href="{{ settings.m_him_sell_url_un3 }}">
+
+                    <img src="{{ settings.m_him_sell_un3 | img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                  </a>
+                </div>
+                {% endif %}
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12 text-center two_sec">
+                <a href="{{settings.m_her_sell_url}}">
+
+                  <img src="{{ settings.m_her_sell | img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                </a>
+                {% if settings.m_enable_hersell_un %}
+
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                  <a href="{{ settings.m_her_sell_url_un1 }}">
+
+                    <img src="{{ settings.m_her_sell_un1 | img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                  </a>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                  <a href="{{ settings.m_her_sell_url_un2 }}">
+
+                    <img src="{{ settings.m_her_sell_un2 | img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                  </a>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                  <a href="{{ settings.m_her_sell_url_un3 }}">
+
+                    <img src="{{ settings.m_her_sell_un3 | img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                  </a>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+            {% endif %}
+
+            {% if settings.m_enable_extra %}
+            <div class="row two-col">
+              <div class="col-md-6 col-sm-6 col-xs-12 text-center two_sec">
+                <a href="{{ settings.m_him_extra_url }}">
+
+                  <img src="{{ settings.m_him_extra | img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                </a>
+                {% if settings.m_enable_himsell_un %}
+
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                  <a href="">
+
+                    <img src="{{ settings.m_him_extra_un1 | img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                  </a>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                  <a href="">
+
+                    <img src="{{ settings.m_him_extra_un2| img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                  </a>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                  <a href="">
+
+                    <img src="{{ settings.m_him_extra_un3 | img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                  </a>
+                </div>
+                {% endif %}
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12 text-center two_sec">
+                <a href="{{settings.m_her_extra_url}}">
+
+                  <img src="{{ settings.m_her_extra | img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                </a>
+                {% if settings.m_enable_hersell_un %}
+
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                  <a href="{{ settings.m_her_extra_url_un1 }}">
+
+                    <img src="{{ settings.m_her_extra_un1 | img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                  </a>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                  <a href="{{ settings.m_her_extra_url_un2}}">
+
+                    <img src="{{ settings.m_her_extra_un2 | img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                  </a>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                  <a href="{{ settings.m_her_extra_url_un3 }}">
+
+                    <img src="{{ settings.m_her_extra_un3 | img_url: 'original' }}" alt="About WODLife" class="about-image" />
+                  </a>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+            {% endif %}
+
+            {% if settings.m_enable_pro_banner %}
+            <div class="row banner_gift text-center middle-banner">
+              <div class="col-md-12">
+                <a href="{{ settings.m_banner_url}}">
+
+                  <img src="{{ settings.m_promo_banner | img_url: 'master' }}" alt="About WODLife" class="about-image" />
+                </a>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section page hot_deals_page">
+    <div class="page-width">
+
+
+        <div class="collection-items-holder hot-deals ">
+          <ul class="collection-items grid grid--uniform">
+             <div class="row ">
+             {% assign product_count = collections[settings.cybermonday-col].products_count %}
+             {% paginate collections[settings.cybermonday-col].products by product_count %}
+            {%  for product in collections[settings.cybermonday-col].products  %}
+            <li class="grid__item small--one-half medium-up--one-quarter">
+              {% include 'a-product-card-grid-2' %}
+            </li>
+            {% endfor %}
+            {% endpaginate %}
+            </div>
+          </ul>
+ {% comment %}
+           <div class="AjaxinatePagination text-center">
+                 <div class="blog-view-all">
+                  {% if paginate.next %}
+                    <a class="ld ld-ring ld-spin" href="{{ paginate.next.url }}"></a>
+                  {% endif %}
+                 </div>
+                </div>{% endcomment %}
+        </div>
+
+
+
+    </div>
+  </div>
+</main>
+ {% endif %}
+{% include 'join-the-crew' %}
+{% section 'newsletter-section' %}
+{% if settings.enable_cyberpage == blank %}
+<main class="{% if settings.enable_cyberpage == blank %}blank-page{% endif %}">
+  <div class="section">
+    <div class="page-width">
+      <div class="grid">
+        <div class="col-md-12 text-center">
+          {% include 'blank-content' %}
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+ {% endif %}
+<iframe
+src="https://asia.creativecdn.com/tags?id=pr_xplitdU3nLQ7IK7KFYpl&amp;ncm=1"
+width="1" height="1" scrolling="no" frameBorder="0" style="display: none;"></iframe>

@@ -1,0 +1,24 @@
+<div class="page-default-template">
+  <div class="page-width page-search-width">
+      <div class="section-header text-center">
+        <h1>{{ page.title }}</h1>
+      </div>
+      <div class="rte">
+        {{ page.content }}
+      </div>
+  </div>
+</div>
+{% section 'newsletter-section' %}
+{% if page.handle == 'thanks-newsletter' %}
+  {% include 'visely-trending-now' %}
+  {% include 'visely-most-popular' %}
+{% endif %}
+{% section 'main-bar' %}
+
+<script>
+  $( document ).ready(function() {
+    setTimeout(function(){
+    	$(".isp_single_facet_wrapper").addClass("collapsed");
+    }, 1500);   
+});
+</script>

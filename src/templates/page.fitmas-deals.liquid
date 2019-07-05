@@ -1,0 +1,457 @@
+{% if settings.enable_days_fitms_12 %}
+<style>
+ @media (max-width: 900px) { 
+  .bann_image {
+      background-image: url('{{ settings.fitmas_banner | img_url: 'master' }}');
+  }
+ }
+  
+</style>
+
+<main class="{{page.title | handle }} merged-page-template">
+  {% include 'breadcrumb' %}
+ 
+{% if settings.enable_fitmastophead %}
+
+ {% comment %} <section id="page-header">
+    <div class="header-background">
+      <div class="changable-image" style="background-image: url({{ settings.fitmas_banner | img_url: 'master' }});">
+        <div class="page-width">
+          <div class="grid">
+            <div class="grid__item">
+              <div class="bann_img-cont">
+                {%if  settings.enable_fitmasbanhead %}
+
+                <h1>{{ page.title }}</h1>
+              
+             <h3>{{ settings.bannerfit_description }}</h3>
+              <div class="note">
+            {{ settings.bannerfit_note }}
+             </div>
+                {% endif %}
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> {% endcomment %}
+  
+  
+  
+  <div class="bann_image overly">
+                  <img src="{{ settings.fitmas_banner | img_url: 'master' }}" alt="About WODLife" class="about-image" />
+ <div class="bann_img-cont">
+  {%if  settings.enable_fitmasbanhead %}
+   <h2><b>{{page.title}}</b></h2>
+   <h3><b>{{ settings.bannerfit_description }}</b></h3>
+          <div class="note">
+            <b>{{ settings.bannerfit_note }}</b>
+          </div>
+  {% endif %}
+  </div>
+  </div>
+  
+  
+  {% endif %}
+  
+  
+  
+   {% if settings.enable_top_fitmasban %}
+  {% unless settings.enable_fitmastophead %}
+  <section class="top_bar_monday" >
+      <div class=" top_image_ban full_width">
+
+        <img src="{{ settings.top_fitmas_banner | img_url: 'master' }}" alt="About WODLife" class="about-image" />
+        {%if  settings.fitmas_head != blank %}
+        <h1>{{settings.fitmas_head}}</h1>
+        {% endif %}
+     </div>
+  </section>
+  {% endunless %}
+      {% endif %}
+     {% if settings.enable_top_fitmasban and settings.enable_fitmastophead %}
+
+   <section class="top_bar_monday" >
+    <div class="page-width">
+      <div class="grid top_image_ban">
+        <div class="grid__item">
+        <img src="{{ settings.top_fitmas_banner | img_url: 'master' }}" alt="About WODLife" class="about-image" />
+        {%if  settings.fitmas_head != blank %}
+        <h1>{{settings.fitmas_head}}</h1>
+        {% endif %}
+      </div>  
+      </div>
+     </div>
+  </section>
+      {% endif %}
+  
+  {% comment %}
+  <div class="section page hot_deals_page">
+    <div class="page-width">
+      {%if  settings.enable_countdowntimer %}
+      <div class="row-001">
+          <div class="content text-center">
+            {{ page.content }}
+          </div>
+      </div>
+      {% endif %} 
+      <div class="collection-grid">
+        {% paginate collections[settings.fitmas_coll].products %}
+
+        <div class="collection-items-holder hot-deals ">
+          <ul class="collection-items">
+            {%  for product in collections[settings.fitmas_coll].products  %}
+            <li>
+              {% include 'a-product-card-grid-2' %}
+            </li>
+            {% endfor %}
+
+          </ul>
+          <div class="loading-bar">
+            <div class="spinner"></div>
+          </div>
+        </div>
+        <div id="gf_pagination_wrap">{% include 'globofilter_pagination' %}</div>
+
+        {% endpaginate %}
+      </div>
+
+    </div>
+  </div>
+  {% endcomment %}
+  {% if settings.fitmas_deal_info != blank %}
+  <div class="section page email-txt">
+    <div class="page-width">
+      <div class="fd-email text-center deal_info">{{ settings.fitmas_deal_info }}</div>
+    </div>
+  </div>
+  {% endif %}
+  
+  {% if settings.fitmas_deals_countdown %}
+    {% include 'countdown' %} 
+  {% endif %}
+
+  <div class="section page fitmas-deal-sec">
+    <div class="page-width">
+      <div class="row">
+         {%if  settings.email_txt1 != blank %}
+          <div class="fd-email text-center text_abv_grid">{{ settings.email_txt1 }}</div>
+          {% endif %}
+       </div>
+      <div class="row-12-01">
+        <div class="grid grid--uniform">
+          {%if  settings.enable_day-one-deal %} 
+
+          <div class="grid__item extra-small--one-whole small--one-half medium-up--one-quarter">
+            <div class="deals">
+
+              <a href="{% if settings.enable_day-one-url %}{{ settings.day-one-url }}{% else%}#{% endif %}">
+                <div class="deal-img">
+                  <img src="{{ settings.box-one | img_url: 'master' }}" alt="" class="fitmas-day-style" />
+
+                  <div class="overlay {% if settings.enable_banpage-one != blank %} dis-none{% endif %} ">
+                    {%if  settings.day-one-txt %}
+                    <h1>{{settings.day-one-txt}}</h1>
+                    {% endif %}
+                    {%if  settings.day-one-des %}
+                    <h5>{{settings.day-one-des}}</h5>
+                    {% endif %}
+                    <span class="deal-btn">{{ settings.day-one-btn}}</span>
+                  </div>
+
+                </div>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+
+          {%if  settings.enable_day-two-deal %} 
+
+          <div class="grid__item extra-small--one-whole small--one-half medium-up--one-quarter">
+            <div class="deals">
+              <a href="{% if settings.enable_day-two-url %}{{ settings.day-two-url }}{% else %}#{% endif %}">
+                <div class="deal-img">
+                  <img src="{{ settings.box-two | img_url: 'master' }}" alt="" class="fitmas-day-style" />
+                  <div class="overlay {% if settings.enable_banpage-two != blank %}dis-none{% endif %}">
+                    {%if  settings.day-two-txt %}
+                    <h1>{{settings.day-two-txt}}</h1>
+                    {% endif %}
+                    {%if  settings.day-two-des %}
+                    <h5>{{settings.day-two-des}}</h5>
+                    {% endif %}
+                    <span class="deal-btn">{{ settings.day-two-btn}}</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+          {%if  settings.enable_day-three-deal %} 
+
+          <div class="grid__item extra-small--one-whole small--one-half medium-up--one-quarter">
+            <div class="deals">
+              <a href="{% if settings.enable_day-three-url %}{{ settings.day-three-url }}{% else %}#{% endif %}">
+                <div class="deal-img">
+                  <img src="{{ settings.box-three | img_url: 'master' }}" alt="" class="fitmas-day-style" />
+
+                  <div class="overlay {% if settings.enable_banpage-three != blank %}dis-none{% endif %} ">
+                    {%if  settings.day-three-txt %}
+                    <h1>{{settings.day-three-txt}}</h1>
+                    {% endif %}
+                    {%if  settings.day-three-des %}
+                    <h5>{{settings.day-three-des}}</h5>
+                    {% endif %}
+                    <span class="deal-btn">{{ settings.day-three-btn}}</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+          {%if  settings.enable_day-four-deal %} 
+
+          <div class="grid__item extra-small--one-whole small--one-half medium-up--one-quarter">
+            <div class="deals">
+              <a href="{% if settings.enable_day-four-url %}{{ settings.day-four-url }}{% else %}#{% endif %}">
+                <div class="deal-img">
+                  <img src="{{ settings.box-four | img_url: 'master' }}" alt="" class="fitmas-day-style" />
+                  <div class="overlay {% if settings.enable_banpage-four != blank %}dis-none{% endif %} ">
+                    {%if  settings.day-four-txt %}
+                    <h1>{{settings.day-four-txt}}</h1>
+                    {% endif %}
+                    {%if  settings.day-four-des %}
+                    <h5>{{settings.day-four-des}}</h5>
+                    {% endif %}
+                    <span class="deal-btn">{{ settings.day-four-btn}}</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+
+
+
+
+        </div>
+      </div>
+
+      <div class="row-12-02">
+        <div class="grid grid--uniform">
+          {%if  settings.enable_day-five-deal %} 
+
+          <div class="grid__item extra-small--one-whole small--one-half medium-up--one-quarter">
+            <div class="deals">
+              <a href="{% if settings.enable_day-five-url %}{{ settings.day-five-url }}{% else %}#{% endif%}">
+                <div class="deal-img">
+                  <img src="{{ settings.box-five | img_url: 'master' }}" alt="" class="fitmas-day-style" />
+                  <div class="overlay {% if settings.enable_banpage-five != blank %}dis-none{% endif %} ">
+                    {%if  settings.day-five-txt %}
+                    <h1>{{settings.day-five-txt}}</h1>
+                    {% endif %}
+                    {%if  settings.day-five-des %}
+                    <h5>{{settings.day-five-des}}</h5>
+                    {% endif %}
+                    <span class="deal-btn">{{ settings.day-five-btn}}</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+
+          {%if  settings.enable_day-six-deal %} 
+
+          <div class="grid__item extra-small--one-whole small--one-half medium-up--one-quarter">
+            <div class="deals">
+              <a href="{% if settings.enable_day-six-url %}{{ settings.day-six-url }}{% else %}#{% endif %}">
+                <div class="deal-img">
+                  <img src="{{ settings.box-six | img_url: 'master' }}" alt="" class="fitmas-day-style" />
+                  <div class="overlay {% if settings.enable_banpage-six != blank %}dis-none{% endif %} ">
+                    {%if  settings.day-six-txt %}
+                    <h1>{{settings.day-six-txt}}</h1>
+                    {% endif %}
+                    {%if  settings.day-six-des %}
+                    <h5>{{settings.day-six-des}}</h5>
+                    {% endif %}
+                    <span class="deal-btn">{{ settings.day-six-btn}}</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+          {%if  settings.enable_day-seven-deal %} 
+
+          <div class="grid__item extra-small--one-whole small--one-half medium-up--one-quarter">
+            <div class="deals">
+              <a href="{% if settings.enable_day-seven-url %}{{ settings.day-seven-url }}{% else %}#{% endif %}">
+                <div class="deal-img">
+                  <img src="{{ settings.box-seven | img_url: 'master' }}" alt="" class="fitmas-day-style" />
+                  <div class="overlay {% if settings.enable_banpage-seven != blank %}dis-none{% endif %} ">
+                    {%if  settings.day-seven-txt %}
+                    <h1>{{settings.day-seven-txt}}</h1>
+                    {% endif %}
+                    {%if  settings.day-seven-des %}
+                    <h5>{{settings.day-seven-des}}</h5>
+                    {% endif %}
+                    <span class="deal-btn">{{ settings.day-seven-btn}}</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+          {%if  settings.enable_day-eight-deal %} 
+
+          <div class="grid__item extra-small--one-whole small--one-half medium-up--one-quarter">
+            <div class="deals">
+              <a href="{% if settings.enable_day-eight-url %}{{ settings.day-eight-url }}{% else %}#{% endif %}">
+                <div class="deal-img">
+                  <img src="{{ settings.box-eight | img_url: 'master' }}" alt="" class="fitmas-day-style" />
+                  <div class="overlay {% if settings.enable_banpage-eight != blank %}dis-none{% endif %} ">
+                    {%if  settings.day-eight-txt %}
+                    <h1>{{settings.day-eight-txt}}</h1>
+                    {% endif %}
+                    {%if  settings.day-eight-des %}
+                    <h5>{{settings.day-eight-des}}</h5>
+                    {% endif %}
+                    <span class="deal-btn">{{ settings.day-eight-btn}}</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+
+
+
+
+        </div>
+      </div>
+
+      <div class="row-12-03">
+        <div class="grid grid--uniform">
+          {%if  settings.enable_day-nine-deal %} 
+
+          <div class="grid__item extra-small--one-whole small--one-half medium-up--one-quarter">
+            <div class="deals">
+              <a href="{% if settings.enable_day-nine-url %}{{ settings.day-nine-url }}{% else %}#{% endif %}">
+                <div class="deal-img">
+                  <img src="{{ settings.box-nine | img_url: 'master' }}" alt="" class="fitmas-day-style" />
+                  <div class="overlay {% if settings.enable_banpage-nine != blank %}dis-none{% endif %} ">
+                    {%if  settings.day-nine-txt %}
+                    <h1>{{settings.day-nine-txt}}</h1>
+                    {% endif %}
+                    {%if  settings.day-nine-des %}
+                    <h5>{{settings.day-nine-des}}</h5>
+                    {% endif %}
+                    <span class="deal-btn">{{ settings.day-nine-btn}}</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+
+          {%if  settings.enable_day-ten-deal %} 
+
+          <div class="grid__item extra-small--one-whole small--one-half medium-up--one-quarter">
+            <div class="deals">
+              <a href="{% if settings.enable_day-ten-url %}{{ settings.day-ten-url }}{% else %}#{% endif %}">
+                <div class="deal-img">
+                  <img src="{{ settings.box-ten | img_url: 'master' }}" alt="" class="fitmas-day-style" />
+                  <div class="overlay {% if settings.enable_banpage-ten != blank %}dis-none{% endif %} ">
+                    {%if  settings.day-ten-txt %}
+                    <h1>{{settings.day-ten-txt}}</h1>
+                    {% endif %}
+                    {%if  settings.day-ten-des %}
+                    <h5>{{settings.day-ten-des}}</h5>
+                    {% endif %}
+                    <span class="deal-btn">{{ settings.day-ten-btn}}</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+          {%if  settings.enable_day-eleven-deal %} 
+
+          <div class="grid__item extra-small--one-whole small--one-half medium-up--one-quarter">
+            <div class="deals">
+              <a href="{% if settings.enable_day-eleven-url %}{{ settings.day-eleven-url }}{% else %}#{% endif %}">
+                <div class="deal-img">
+                  <img src="{{ settings.box-eleven | img_url: 'master' }}" alt="" class="fitmas-day-style" />
+                  <div class="overlay {% if settings.enable_banpage-eleven != blank %}dis-none{% endif %} ">
+                    {%if  settings.day-eleven-txt %}
+                    <h1>{{settings.day-eleven-txt}}</h1>
+                    {% endif %}
+                    {%if  settings.day-eleven-des %}
+                    <h5>{{settings.day-eleven-des}}</h5>
+                    {% endif %}
+                    <span class="deal-btn">{{ settings.day-eleven-btn}}</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+          {%if  settings.enable_day-twelve-deal %} 
+
+          <div class="grid__item extra-small--one-whole small--one-half medium-up--one-quarter">
+            <div class="deals">
+              <a href="{% if settings.enable_day-twelve-url %}{{ settings.day-twelve-url }}{% else %}#{% endif%}">
+                <div class="deal-img">
+                  <img src="{{ settings.box-twelve | img_url: 'master' }}" alt="" class="fitmas-day-style" />
+                  <div class="overlay {% if settings.enable_banpage-twelve != blank %}dis-none{% endif %} ">
+                    {%if  settings.day-twelve-txt %}
+                    <h1>{{settings.day-twelve-txt}}</h1>
+                    {% endif %}
+                    {%if  settings.day-twelve-des %}
+                    <h5>{{settings.day-twelve-des}}</h5>
+                    {% endif %}
+                    <span class="deal-btn">{{ settings.day-twelve-btn}}</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+
+
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="section page email-txt">
+    <div class="page-width">
+
+        <div class="12mailsec">
+          {%if  settings.email_txt != blank %}
+          <div class="fd-email text-center">{{ settings.email_txt }}</div>
+
+          <div class="form-holder dayfrmsec">
+            {% include 'mailing' %}
+          </div>
+          {% endif %}
+         
+        </div>
+    </div>
+  </div>
+ {%comment%} {% include 'pointouts' %}{%endcomment%}
+  
+  {% section 'main-bar' %}
+
+</main>
+
+{% include 'join-the-crew' %}
+{% section 'newsletter-section' %}
+<iframe
+src="https://asia.creativecdn.com/tags?id=pr_xplitdU3nLQ7IK7KFYpl&amp;ncm=1"
+width="1" height="1" scrolling="no" frameBorder="0" style="display: none;"></iframe>
+{% endif %}

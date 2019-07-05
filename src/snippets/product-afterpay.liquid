@@ -1,0 +1,18 @@
+<div class="afterpay-box-sec">
+  <div class="description">
+    {% if product.price >= 120000 %}
+      Or Due to certain restrictions, Afterpay is unavailable on products over $1,200.
+    {% else %}
+      Or 4 payments of
+      <span id="afterpay_instalments">{{ product.price | divided_by: 4 | money }}</span>
+      with
+    {% endif %}
+  </div>
+  <div class="image-holder">
+    <img alt="Afterpay" class="lazyload" data-src="{{ 'afterpay-logo.png' | asset_url }}" />
+  </div>
+  <a href="#afterpay" class="afterpay-box">Learn more</a>
+  <span class="clearfix"></span>
+</div>
+<span class="zippay-or" style="display:none;">Or</span>
+{% include 'afterpay-popup' %}

@@ -1,0 +1,105 @@
+<div class="page-default-template">
+  <div class="page-width">
+      <div class="section-header text-center whyis_heading1">
+        <h1>{{ page.title }}</h1>
+        {{ page.content }}
+      </div>
+    
+    
+  
+          
+     {% section 'whyisweat' %}
+     
+  
+    
+    
+    
+    <section id="get-in-touch" class="section">
+    
+    <div class="container">
+      
+      <div class="row">
+<!--         <div class="col-md-12 set_form"> -->
+          
+          
+   <div class="col-md-12 set_form">       
+        <h2 class="appreal_heading_text appgive-title">{{settings.whyisweat_newsletter_title}}</h2>
+     
+     
+        <p class="appreal_heading_text appgive-subtitle">{{settings.whyisweat_newsletter_subtitle}}</p>
+    
+     
+             <form id="email_signup" class="klaviyo_standard_embed_QqXqgT contact_form whyweatform" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+         
+            <div class="grid__item-setf">
+              <div class="set_input name_fld txt-centr">
+              <input required type="text" id="ContactFormName" name="contact[name]" placeholder="Enter Name" value="">
+           </div>
+              </div>
+            <input type="hidden" name="g" value="J9j9LP">
+              <div class="grid__item-setf">
+                <div class="set_input email_fld txt-centr">
+                  
+                    
+    
+    <input type="email" value="" name="email" id="k_id_email" placeholder="Your email" />
+  
+                  
+<!--               <input required type="email" id="ContactFormEmail" name="contact[email]" placeholder="Enter Email Address" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" class="{% if form.errors contains 'email' %}input--error{% endif %}" > -->
+           	</div>
+         </div>
+	  <div class="klaviyo_messages">
+    <div class="success_message" style="display:none;"></div>
+    <div class="error_message" style="display:none;"></div>
+    </div>
+          
+ <div class="col-md-12 ">
+           
+           <div class="set_input name_fld txt-centr">
+
+            
+    <button type="submit" class="btn contactbtn" style="color: #fff;background-color: #000;">{{settings.whyisweat_newsletter_buttontitle}}</button>
+             
+  </div>
+<!-- 			              <div class="set_input name_fld txt-centr">
+
+          <input type="submit" class="btn contactbtn" value="Enter To Win">
+					</div> -->
+           </div>
+           
+                     
+<!--       </div> -->
+     </form>
+     
+        </div>
+  
+  </div>
+</div>
+  </section>
+    
+    
+  </div>
+</div>
+{% include 'join-the-crew' %}
+{% section 'newsletter-section' %}
+{% section 'main-bar' %}
+
+<style>
+  .whyweatform {
+    display: block !important;
+    max-width: 450px;
+    margin: auto;
+}
+  .whyis_heading{
+    margin-bottom: 15px;
+  }
+  .whyis_heading1{margin-bottom: 35px;}
+  .whyisweatvideo{max-width:900px !important;margin: auto;padding-bottom: 55% !important;}
+  @media screen and (min-width: 768px){
+    .whyisweatvideo{ padding-bottom: 56% !important; }
+  }
+  @media screen and (min-width: 1024px){
+    .whyisweatvideo{ padding-bottom: 0 !important; height: 511px; }
+  }
+</style>
+
